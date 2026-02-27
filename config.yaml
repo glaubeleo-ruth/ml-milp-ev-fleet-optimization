@@ -1,0 +1,180 @@
+# ML-Enhanced EV Fleet Routing Optimization
+# Configuration File
+
+# =============================================================================
+# NETWORK CONFIGURATION
+# =============================================================================
+network:
+  poi_file: "data/raw/poi_locations.csv"
+  circuity_factor: 1.3          # Haversine to road distance multiplier
+  avg_speed_kmh: 20             # Average vehicle speed on campus
+
+# =============================================================================
+# VEHICLE SPECIFICATIONS (GreenPower EV Star)
+# =============================================================================
+vehicle:
+  name: "GreenPower EV Star"
+  battery_capacity_kwh: 118     # Total battery capacity
+  min_soc_pct: 20               # Minimum state of charge (safety reserve)
+  max_soc_pct: 100              # Maximum state of charge
+  passenger_capacity: 19        # Seated passengers
+  curb_weight_kg: 4763          # Vehicle weight without passengers
+  gross_weight_kg: 6577         # Maximum loaded weight
+  
+  # Energy model parameters
+  motor_efficiency: 0.88        # Motor efficiency (85-92%)
+  regen_efficiency: 0.60        # Regenerative braking efficiency
+  aux_power_kw: 0.5             # Auxiliary systems (lights, sensors)
+  
+  # Aerodynamic parameters
+  drag_coefficient: 0.7         # Cd for shuttle bus
+  frontal_area_m2: 7.5          # Frontal area
+  rolling_resistance: 0.01      # Cr for commercial tires
+  
+  # HVAC parameters
+  hvac_power_min_kw: 0.5        # Ventilation only (mild weather)
+  hvac_power_max_kw: 7.0        # Maximum heating (extreme cold)
+
+# =============================================================================
+# HVAC MODEL
+# =============================================================================
+hvac:
+  # Heating mode (T < 20°C)
+  heating_base_kw: 3.0
+  heating_slope: 0.2            # kW per °C below 20
+  
+  # Cooling mode (T > 25°C)
+  cooling_base_kw: 2.0
+  cooling_slope: 0.15           # kW per °C above 25
+  
+  # Neutral mode (20-25°C)
+  neutral_power_kw: 0.5
+
+# =============================================================================
+# OPERATIONAL PARAMETERS
+# =============================================================================
+operation:
+  service_start: "07:00"        # Service start time
+  service_end: "22:00"          # Service end time
+  max_wait_minutes: 10          # Maximum passenger wait time
+  boarding_time_sec: 30         # Time for passenger boarding
+  
+  # Charging
+  charging_power_kw: 60         # Level 2 charging rate
+  charging_threshold_pct: 30    # SOC below which vehicle returns to depot
+
+# =============================================================================
+# MACHINE LEARNING MODEL
+# =============================================================================
+ml:
+  model_type: "xgboost"
+  random_state: 42
+  
+  # Data split ratios
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  
+  # XGBoost hyperparameters
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    min_child_weight: 3
+    subsample: 0.8
+    colsample_bytree: 0.8
+    objective: "reg:squarederror"
+    eval_metric: "rmse"
+    early_stopping_rounds: 10
+  
+  # Features
+  features:
+    - distance_km
+    - duration_sec
+    - avg_speed_kmh
+    - temperature_C
+    - hour
+    - is_peak
+    - hvac_power_kW
+  
+  target: "total_energy_kWh"
+
+# =============================================================================
+# MILP OPTIMIZATION
+# =============================================================================
+optimization:
+  solver: "highs"               # HiGHS solver (open-source)
+  time_limit_sec: 60            # Maximum solve time per epoch
+  mip_gap: 0.01                 # Optimality gap tolerance (1%)
+  
+  # Objective weights
+  weights:
+    balanced:
+      energy: 1.0
+      wait_time: 1.0
+      unserved: 1.0
+    
+    energy_focused:
+      energy: 1.0
+      wait_time: 0.5
+      unserved: 0.5
+    
+    service_focused:
+      energy: 0.5
+      wait_time: 0.5
+      unserved: 1.0
+
+# =============================================================================
+# ROLLING HORIZON
+# =============================================================================
+rolling_horizon:
+  epoch_minutes: 5              # Default epoch interval
+  lookahead_epochs: 1           # Number of future epochs to consider
+
+# =============================================================================
+# EXPERIMENT CONFIGURATION
+# =============================================================================
+experiment:
+  # Parameter sweep values
+  fleet_sizes: [5, 8, 10, 12, 15]
+  epoch_minutes: [2, 5, 10]
+  temperatures: ["cold_winter", "baseline", "hot_summer"]
+  weight_profiles: ["energy_focused", "balanced", "service_focused"]
+  
+  # Temperature scenarios
+  temperature_ranges:
+    cold_winter:
+      min: -15
+      max: 0
+      description: "Chicago winter with heating demand"
+    baseline:
+      min: -4
+      max: 14
+      description: "Mild spring/fall conditions"
+    hot_summer:
+      min: 28
+      max: 38
+      description: "Chicago summer with cooling demand"
+  
+  # Simulation settings
+  num_days: 5                   # Number of days to simulate
+  trips_per_day: 837            # Average trips per weekday
+
+# =============================================================================
+# OUTPUT PATHS
+# =============================================================================
+paths:
+  data_raw: "data/raw/"
+  data_processed: "data/processed/"
+  results: "data/results/"
+  models: "models/"
+  figures: "outputs/figures/"
+  reports: "outputs/reports/"
+
+# =============================================================================
+# LOGGING
+# =============================================================================
+logging:
+  level: "INFO"                 # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/experiment.log"
