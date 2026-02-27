@@ -1,0 +1,6 @@
+station_name,latitude,longitude,category,charger_count,demand_weight
+Arthur S. Keating Sports Center,41.838985,-87.625566,Recreation,2,0.6450356911096691
+Kaplan Institute,41.836861,-87.6283,Academic,2,0.8046722907203114
+McCormick Student Village,41.835527,-87.624207,Residence,2,0.7806619078520441
+McCormick Tribune Campus Center,41.835621,-87.625887,Student Center,2,0.8513951979234263
+Paul Galvin Library,41.833675,-87.628336,Library,2,0.8676184295911745

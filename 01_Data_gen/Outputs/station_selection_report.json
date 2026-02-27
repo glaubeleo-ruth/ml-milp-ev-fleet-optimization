@@ -1,0 +1,44 @@
+{
+  "model": "EV-UFLP",
+  "solver": "Gurobi",
+  "status": "optimal",
+  "objective_value": 0.7666539247400559,
+  "n_stations": 5,
+  "selected_stations": [
+    "Arthur S. Keating Sports Center",
+    "Kaplan Institute",
+    "McCormick Student Village",
+    "McCormick Tribune Campus Center",
+    "Paul Galvin Library"
+  ],
+  "gamma": 0.06750945490169574,
+  "mip_gap": 0.0,
+  "solve_time_sec": 0.0022106170654296875,
+  "config": {
+    "battery_capacity_kWh": 118.0,
+    "soc_min": 0.15,
+    "soc_max": 0.95,
+    "soc_threshold_to_charge": 0.3,
+    "energy_budget_to_station_kWh": 17.7,
+    "chargers_per_station": 2,
+    "max_distance_to_station_km": 2.0
+  },
+  "assignments": {
+    "Alpha Sigma Phi": "McCormick Student Village",
+    "Arthur S. Keating Sports Center": "Arthur S. Keating Sports Center",
+    "Chemistry Research Building": "Paul Galvin Library",
+    "Cunningham Hall": "Arthur S. Keating Sports Center",
+    "Farr Hall": "McCormick Student Village",
+    "Grover M. Herman Hall": "Kaplan Institute",
+    "Kaplan Institute": "Kaplan Institute",
+    "Main Building": "Paul Galvin Library",
+    "McCormick Student Village": "McCormick Student Village",
+    "McCormick Tribune Campus Center": "McCormick Tribune Campus Center",
+    "Paul Galvin Library": "Paul Galvin Library",
+    "Perlstein Hall": "McCormick Tribune Campus Center",
+    "Pritzker Science Center": "Kaplan Institute",
+    "Rowe Village Middle": "Paul Galvin Library",
+    "S.R. Crown Hall": "Paul Galvin Library",
+    "The Commons": "McCormick Tribune Campus Center"
+  }
+}

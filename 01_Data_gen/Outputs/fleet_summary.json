@@ -1,0 +1,1372 @@
+{
+  "total_requests": 9476,
+  "trips_completed": 9473,
+  "trips_missed": 0,
+  "service_rate": 0.9997,
+  "total_distance_km": 4775.37,
+  "total_energy_kWh": 2302.79,
+  "charging_sessions": 0,
+  "avg_wait_time_sec": 15.4,
+  "n_vehicles": 194,
+  "operating_hours": "7:00 - 23:00",
+  "vehicle_stats": [
+    {
+      "vehicle_id": 0,
+      "trips_served": 309,
+      "km_driven": 159.78,
+      "energy_consumed_kWh": 76.79,
+      "final_soc": 0.2992
+    },
+    {
+      "vehicle_id": 1,
+      "trips_served": 324,
+      "km_driven": 157.88,
+      "energy_consumed_kWh": 76.87,
+      "final_soc": 0.2986
+    },
+    {
+      "vehicle_id": 2,
+      "trips_served": 311,
+      "km_driven": 158.38,
+      "energy_consumed_kWh": 76.76,
+      "final_soc": 0.2995
+    },
+    {
+      "vehicle_id": 3,
+      "trips_served": 318,
+      "km_driven": 160.42,
+      "energy_consumed_kWh": 76.95,
+      "final_soc": 0.2979
+    },
+    {
+      "vehicle_id": 4,
+      "trips_served": 315,
+      "km_driven": 155.44,
+      "energy_consumed_kWh": 74.53,
+      "final_soc": 0.3184
+    },
+    {
+      "vehicle_id": 5,
+      "trips_served": 312,
+      "km_driven": 158.73,
+      "energy_consumed_kWh": 76.58,
+      "final_soc": 0.301
+    },
+    {
+      "vehicle_id": 6,
+      "trips_served": 295,
+      "km_driven": 146.6,
+      "energy_consumed_kWh": 69.47,
+      "final_soc": 0.3613
+    },
+    {
+      "vehicle_id": 7,
+      "trips_served": 320,
+      "km_driven": 152.58,
+      "energy_consumed_kWh": 74.08,
+      "final_soc": 0.3222
+    },
+    {
+      "vehicle_id": 8,
+      "trips_served": 268,
+      "km_driven": 130.64,
+      "energy_consumed_kWh": 64.62,
+      "final_soc": 0.4024
+    },
+    {
+      "vehicle_id": 9,
+      "trips_served": 249,
+      "km_driven": 127.2,
+      "energy_consumed_kWh": 61.49,
+      "final_soc": 0.4289
+    },
+    {
+      "vehicle_id": 10,
+      "trips_served": 272,
+      "km_driven": 137.04,
+      "energy_consumed_kWh": 66.32,
+      "final_soc": 0.3879
+    },
+    {
+      "vehicle_id": 11,
+      "trips_served": 221,
+      "km_driven": 114.04,
+      "energy_consumed_kWh": 55.01,
+      "final_soc": 0.4838
+    },
+    {
+      "vehicle_id": 12,
+      "trips_served": 233,
+      "km_driven": 113.82,
+      "energy_consumed_kWh": 53.99,
+      "final_soc": 0.4925
+    },
+    {
+      "vehicle_id": 13,
+      "trips_served": 214,
+      "km_driven": 107.67,
+      "energy_consumed_kWh": 52.46,
+      "final_soc": 0.5054
+    },
+    {
+      "vehicle_id": 14,
+      "trips_served": 186,
+      "km_driven": 93.86,
+      "energy_consumed_kWh": 45.82,
+      "final_soc": 0.5617
+    },
+    {
+      "vehicle_id": 15,
+      "trips_served": 213,
+      "km_driven": 106.39,
+      "energy_consumed_kWh": 51.73,
+      "final_soc": 0.5116
+    },
+    {
+      "vehicle_id": 16,
+      "trips_served": 163,
+      "km_driven": 86.11,
+      "energy_consumed_kWh": 42.61,
+      "final_soc": 0.5889
+    },
+    {
+      "vehicle_id": 17,
+      "trips_served": 165,
+      "km_driven": 80.56,
+      "energy_consumed_kWh": 39.76,
+      "final_soc": 0.6131
+    },
+    {
+      "vehicle_id": 18,
+      "trips_served": 175,
+      "km_driven": 82.32,
+      "energy_consumed_kWh": 39.41,
+      "final_soc": 0.616
+    },
+    {
+      "vehicle_id": 19,
+      "trips_served": 142,
+      "km_driven": 73.2,
+      "energy_consumed_kWh": 34.8,
+      "final_soc": 0.6551
+    },
+    {
+      "vehicle_id": 20,
+      "trips_served": 139,
+      "km_driven": 68.34,
+      "energy_consumed_kWh": 32.43,
+      "final_soc": 0.6752
+    },
+    {
+      "vehicle_id": 21,
+      "trips_served": 121,
+      "km_driven": 58.9,
+      "energy_consumed_kWh": 28.57,
+      "final_soc": 0.7079
+    },
+    {
+      "vehicle_id": 22,
+      "trips_served": 125,
+      "km_driven": 58.42,
+      "energy_consumed_kWh": 28.37,
+      "final_soc": 0.7096
+    },
+    {
+      "vehicle_id": 23,
+      "trips_served": 122,
+      "km_driven": 54.14,
+      "energy_consumed_kWh": 25.58,
+      "final_soc": 0.7332
+    },
+    {
+      "vehicle_id": 24,
+      "trips_served": 114,
+      "km_driven": 55.75,
+      "energy_consumed_kWh": 26.83,
+      "final_soc": 0.7226
+    },
+    {
+      "vehicle_id": 25,
+      "trips_served": 82,
+      "km_driven": 38.47,
+      "energy_consumed_kWh": 19.0,
+      "final_soc": 0.789
+    },
+    {
+      "vehicle_id": 26,
+      "trips_served": 93,
+      "km_driven": 47.15,
+      "energy_consumed_kWh": 22.82,
+      "final_soc": 0.7566
+    },
+    {
+      "vehicle_id": 27,
+      "trips_served": 100,
+      "km_driven": 50.6,
+      "energy_consumed_kWh": 24.13,
+      "final_soc": 0.7455
+    },
+    {
+      "vehicle_id": 28,
+      "trips_served": 55,
+      "km_driven": 27.66,
+      "energy_consumed_kWh": 13.49,
+      "final_soc": 0.8357
+    },
+    {
+      "vehicle_id": 29,
+      "trips_served": 30,
+      "km_driven": 14.84,
+      "energy_consumed_kWh": 6.72,
+      "final_soc": 0.8931
+    },
+    {
+      "vehicle_id": 30,
+      "trips_served": 105,
+      "km_driven": 53.74,
+      "energy_consumed_kWh": 25.08,
+      "final_soc": 0.7375
+    },
+    {
+      "vehicle_id": 31,
+      "trips_served": 63,
+      "km_driven": 29.43,
+      "energy_consumed_kWh": 14.21,
+      "final_soc": 0.8296
+    },
+    {
+      "vehicle_id": 32,
+      "trips_served": 60,
+      "km_driven": 31.16,
+      "energy_consumed_kWh": 14.82,
+      "final_soc": 0.8244
+    },
+    {
+      "vehicle_id": 33,
+      "trips_served": 104,
+      "km_driven": 53.91,
+      "energy_consumed_kWh": 26.07,
+      "final_soc": 0.7291
+    },
+    {
+      "vehicle_id": 34,
+      "trips_served": 74,
+      "km_driven": 34.15,
+      "energy_consumed_kWh": 16.65,
+      "final_soc": 0.8089
+    },
+    {
+      "vehicle_id": 35,
+      "trips_served": 68,
+      "km_driven": 33.66,
+      "energy_consumed_kWh": 16.6,
+      "final_soc": 0.8093
+    },
+    {
+      "vehicle_id": 36,
+      "trips_served": 50,
+      "km_driven": 23.12,
+      "energy_consumed_kWh": 11.15,
+      "final_soc": 0.8555
+    },
+    {
+      "vehicle_id": 37,
+      "trips_served": 84,
+      "km_driven": 46.04,
+      "energy_consumed_kWh": 21.16,
+      "final_soc": 0.7707
+    },
+    {
+      "vehicle_id": 38,
+      "trips_served": 46,
+      "km_driven": 23.56,
+      "energy_consumed_kWh": 11.29,
+      "final_soc": 0.8543
+    },
+    {
+      "vehicle_id": 39,
+      "trips_served": 51,
+      "km_driven": 27.27,
+      "energy_consumed_kWh": 13.31,
+      "final_soc": 0.8372
+    },
+    {
+      "vehicle_id": 40,
+      "trips_served": 26,
+      "km_driven": 12.98,
+      "energy_consumed_kWh": 6.54,
+      "final_soc": 0.8946
+    },
+    {
+      "vehicle_id": 41,
+      "trips_served": 71,
+      "km_driven": 36.32,
+      "energy_consumed_kWh": 17.32,
+      "final_soc": 0.8032
+    },
+    {
+      "vehicle_id": 42,
+      "trips_served": 75,
+      "km_driven": 43.99,
+      "energy_consumed_kWh": 20.92,
+      "final_soc": 0.7727
+    },
+    {
+      "vehicle_id": 43,
+      "trips_served": 52,
+      "km_driven": 25.8,
+      "energy_consumed_kWh": 12.8,
+      "final_soc": 0.8415
+    },
+    {
+      "vehicle_id": 44,
+      "trips_served": 63,
+      "km_driven": 31.97,
+      "energy_consumed_kWh": 15.33,
+      "final_soc": 0.8201
+    },
+    {
+      "vehicle_id": 45,
+      "trips_served": 25,
+      "km_driven": 9.19,
+      "energy_consumed_kWh": 4.57,
+      "final_soc": 0.9113
+    },
+    {
+      "vehicle_id": 46,
+      "trips_served": 39,
+      "km_driven": 22.41,
+      "energy_consumed_kWh": 10.19,
+      "final_soc": 0.8637
+    },
+    {
+      "vehicle_id": 47,
+      "trips_served": 42,
+      "km_driven": 23.19,
+      "energy_consumed_kWh": 11.42,
+      "final_soc": 0.8533
+    },
+    {
+      "vehicle_id": 48,
+      "trips_served": 31,
+      "km_driven": 15.42,
+      "energy_consumed_kWh": 7.45,
+      "final_soc": 0.8869
+    },
+    {
+      "vehicle_id": 49,
+      "trips_served": 35,
+      "km_driven": 17.15,
+      "energy_consumed_kWh": 8.17,
+      "final_soc": 0.8807
+    },
+    {
+      "vehicle_id": 50,
+      "trips_served": 19,
+      "km_driven": 10.73,
+      "energy_consumed_kWh": 5.11,
+      "final_soc": 0.9067
+    },
+    {
+      "vehicle_id": 51,
+      "trips_served": 40,
+      "km_driven": 19.96,
+      "energy_consumed_kWh": 9.55,
+      "final_soc": 0.8691
+    },
+    {
+      "vehicle_id": 52,
+      "trips_served": 40,
+      "km_driven": 23.2,
+      "energy_consumed_kWh": 11.17,
+      "final_soc": 0.8554
+    },
+    {
+      "vehicle_id": 53,
+      "trips_served": 28,
+      "km_driven": 13.54,
+      "energy_consumed_kWh": 6.62,
+      "final_soc": 0.8939
+    },
+    {
+      "vehicle_id": 54,
+      "trips_served": 35,
+      "km_driven": 18.05,
+      "energy_consumed_kWh": 8.86,
+      "final_soc": 0.8749
+    },
+    {
+      "vehicle_id": 55,
+      "trips_served": 35,
+      "km_driven": 18.75,
+      "energy_consumed_kWh": 9.23,
+      "final_soc": 0.8718
+    },
+    {
+      "vehicle_id": 56,
+      "trips_served": 58,
+      "km_driven": 27.48,
+      "energy_consumed_kWh": 12.86,
+      "final_soc": 0.841
+    },
+    {
+      "vehicle_id": 57,
+      "trips_served": 28,
+      "km_driven": 14.57,
+      "energy_consumed_kWh": 6.88,
+      "final_soc": 0.8917
+    },
+    {
+      "vehicle_id": 58,
+      "trips_served": 27,
+      "km_driven": 11.0,
+      "energy_consumed_kWh": 5.54,
+      "final_soc": 0.9031
+    },
+    {
+      "vehicle_id": 59,
+      "trips_served": 32,
+      "km_driven": 16.47,
+      "energy_consumed_kWh": 7.83,
+      "final_soc": 0.8837
+    },
+    {
+      "vehicle_id": 60,
+      "trips_served": 25,
+      "km_driven": 12.03,
+      "energy_consumed_kWh": 5.74,
+      "final_soc": 0.9013
+    },
+    {
+      "vehicle_id": 61,
+      "trips_served": 20,
+      "km_driven": 9.42,
+      "energy_consumed_kWh": 4.52,
+      "final_soc": 0.9117
+    },
+    {
+      "vehicle_id": 62,
+      "trips_served": 10,
+      "km_driven": 6.18,
+      "energy_consumed_kWh": 2.91,
+      "final_soc": 0.9253
+    },
+    {
+      "vehicle_id": 63,
+      "trips_served": 31,
+      "km_driven": 16.62,
+      "energy_consumed_kWh": 7.91,
+      "final_soc": 0.8829
+    },
+    {
+      "vehicle_id": 64,
+      "trips_served": 34,
+      "km_driven": 16.08,
+      "energy_consumed_kWh": 7.9,
+      "final_soc": 0.883
+    },
+    {
+      "vehicle_id": 65,
+      "trips_served": 29,
+      "km_driven": 15.08,
+      "energy_consumed_kWh": 7.04,
+      "final_soc": 0.8903
+    },
+    {
+      "vehicle_id": 66,
+      "trips_served": 14,
+      "km_driven": 7.82,
+      "energy_consumed_kWh": 3.44,
+      "final_soc": 0.9209
+    },
+    {
+      "vehicle_id": 67,
+      "trips_served": 38,
+      "km_driven": 20.04,
+      "energy_consumed_kWh": 9.79,
+      "final_soc": 0.867
+    },
+    {
+      "vehicle_id": 68,
+      "trips_served": 22,
+      "km_driven": 9.58,
+      "energy_consumed_kWh": 4.65,
+      "final_soc": 0.9106
+    },
+    {
+      "vehicle_id": 69,
+      "trips_served": 23,
+      "km_driven": 12.98,
+      "energy_consumed_kWh": 5.64,
+      "final_soc": 0.9022
+    },
+    {
+      "vehicle_id": 70,
+      "trips_served": 68,
+      "km_driven": 35.32,
+      "energy_consumed_kWh": 16.99,
+      "final_soc": 0.806
+    },
+    {
+      "vehicle_id": 71,
+      "trips_served": 9,
+      "km_driven": 5.5,
+      "energy_consumed_kWh": 2.53,
+      "final_soc": 0.9285
+    },
+    {
+      "vehicle_id": 72,
+      "trips_served": 30,
+      "km_driven": 16.28,
+      "energy_consumed_kWh": 7.65,
+      "final_soc": 0.8852
+    },
+    {
+      "vehicle_id": 73,
+      "trips_served": 31,
+      "km_driven": 16.27,
+      "energy_consumed_kWh": 7.74,
+      "final_soc": 0.8844
+    },
+    {
+      "vehicle_id": 74,
+      "trips_served": 28,
+      "km_driven": 13.12,
+      "energy_consumed_kWh": 6.66,
+      "final_soc": 0.8936
+    },
+    {
+      "vehicle_id": 75,
+      "trips_served": 18,
+      "km_driven": 7.45,
+      "energy_consumed_kWh": 3.7,
+      "final_soc": 0.9186
+    },
+    {
+      "vehicle_id": 76,
+      "trips_served": 14,
+      "km_driven": 7.07,
+      "energy_consumed_kWh": 3.2,
+      "final_soc": 0.9229
+    },
+    {
+      "vehicle_id": 77,
+      "trips_served": 12,
+      "km_driven": 6.47,
+      "energy_consumed_kWh": 2.72,
+      "final_soc": 0.9269
+    },
+    {
+      "vehicle_id": 78,
+      "trips_served": 18,
+      "km_driven": 9.31,
+      "energy_consumed_kWh": 4.53,
+      "final_soc": 0.9116
+    },
+    {
+      "vehicle_id": 79,
+      "trips_served": 11,
+      "km_driven": 5.58,
+      "energy_consumed_kWh": 2.66,
+      "final_soc": 0.9275
+    },
+    {
+      "vehicle_id": 80,
+      "trips_served": 21,
+      "km_driven": 13.1,
+      "energy_consumed_kWh": 6.84,
+      "final_soc": 0.892
+    },
+    {
+      "vehicle_id": 81,
+      "trips_served": 16,
+      "km_driven": 8.37,
+      "energy_consumed_kWh": 3.74,
+      "final_soc": 0.9183
+    },
+    {
+      "vehicle_id": 82,
+      "trips_served": 10,
+      "km_driven": 3.63,
+      "energy_consumed_kWh": 1.56,
+      "final_soc": 0.9368
+    },
+    {
+      "vehicle_id": 83,
+      "trips_served": 20,
+      "km_driven": 11.45,
+      "energy_consumed_kWh": 5.49,
+      "final_soc": 0.9034
+    },
+    {
+      "vehicle_id": 84,
+      "trips_served": 30,
+      "km_driven": 15.43,
+      "energy_consumed_kWh": 7.23,
+      "final_soc": 0.8888
+    },
+    {
+      "vehicle_id": 85,
+      "trips_served": 11,
+      "km_driven": 4.79,
+      "energy_consumed_kWh": 2.36,
+      "final_soc": 0.93
+    },
+    {
+      "vehicle_id": 86,
+      "trips_served": 42,
+      "km_driven": 17.3,
+      "energy_consumed_kWh": 8.51,
+      "final_soc": 0.8779
+    },
+    {
+      "vehicle_id": 87,
+      "trips_served": 21,
+      "km_driven": 9.3,
+      "energy_consumed_kWh": 4.5,
+      "final_soc": 0.9119
+    },
+    {
+      "vehicle_id": 88,
+      "trips_served": 25,
+      "km_driven": 12.55,
+      "energy_consumed_kWh": 6.03,
+      "final_soc": 0.8989
+    },
+    {
+      "vehicle_id": 89,
+      "trips_served": 19,
+      "km_driven": 9.84,
+      "energy_consumed_kWh": 4.71,
+      "final_soc": 0.9101
+    },
+    {
+      "vehicle_id": 90,
+      "trips_served": 22,
+      "km_driven": 11.53,
+      "energy_consumed_kWh": 5.46,
+      "final_soc": 0.9037
+    },
+    {
+      "vehicle_id": 91,
+      "trips_served": 37,
+      "km_driven": 17.38,
+      "energy_consumed_kWh": 8.71,
+      "final_soc": 0.8762
+    },
+    {
+      "vehicle_id": 92,
+      "trips_served": 16,
+      "km_driven": 7.39,
+      "energy_consumed_kWh": 3.6,
+      "final_soc": 0.9195
+    },
+    {
+      "vehicle_id": 93,
+      "trips_served": 19,
+      "km_driven": 8.65,
+      "energy_consumed_kWh": 4.17,
+      "final_soc": 0.9146
+    },
+    {
+      "vehicle_id": 94,
+      "trips_served": 6,
+      "km_driven": 4.37,
+      "energy_consumed_kWh": 2.12,
+      "final_soc": 0.9321
+    },
+    {
+      "vehicle_id": 95,
+      "trips_served": 29,
+      "km_driven": 13.87,
+      "energy_consumed_kWh": 6.78,
+      "final_soc": 0.8925
+    },
+    {
+      "vehicle_id": 96,
+      "trips_served": 13,
+      "km_driven": 6.9,
+      "energy_consumed_kWh": 3.02,
+      "final_soc": 0.9244
+    },
+    {
+      "vehicle_id": 97,
+      "trips_served": 19,
+      "km_driven": 9.13,
+      "energy_consumed_kWh": 4.46,
+      "final_soc": 0.9122
+    },
+    {
+      "vehicle_id": 98,
+      "trips_served": 1,
+      "km_driven": 0.97,
+      "energy_consumed_kWh": 0.46,
+      "final_soc": 0.9461
+    },
+    {
+      "vehicle_id": 99,
+      "trips_served": 51,
+      "km_driven": 21.91,
+      "energy_consumed_kWh": 10.81,
+      "final_soc": 0.8584
+    },
+    {
+      "vehicle_id": 100,
+      "trips_served": 10,
+      "km_driven": 5.98,
+      "energy_consumed_kWh": 2.85,
+      "final_soc": 0.9259
+    },
+    {
+      "vehicle_id": 101,
+      "trips_served": 17,
+      "km_driven": 8.75,
+      "energy_consumed_kWh": 4.41,
+      "final_soc": 0.9127
+    },
+    {
+      "vehicle_id": 102,
+      "trips_served": 26,
+      "km_driven": 11.75,
+      "energy_consumed_kWh": 5.81,
+      "final_soc": 0.9008
+    },
+    {
+      "vehicle_id": 103,
+      "trips_served": 8,
+      "km_driven": 3.08,
+      "energy_consumed_kWh": 1.37,
+      "final_soc": 0.9384
+    },
+    {
+      "vehicle_id": 104,
+      "trips_served": 7,
+      "km_driven": 3.13,
+      "energy_consumed_kWh": 1.63,
+      "final_soc": 0.9362
+    },
+    {
+      "vehicle_id": 105,
+      "trips_served": 15,
+      "km_driven": 8.46,
+      "energy_consumed_kWh": 3.98,
+      "final_soc": 0.9163
+    },
+    {
+      "vehicle_id": 106,
+      "trips_served": 6,
+      "km_driven": 4.56,
+      "energy_consumed_kWh": 1.78,
+      "final_soc": 0.9349
+    },
+    {
+      "vehicle_id": 107,
+      "trips_served": 14,
+      "km_driven": 8.49,
+      "energy_consumed_kWh": 4.23,
+      "final_soc": 0.9142
+    },
+    {
+      "vehicle_id": 108,
+      "trips_served": 10,
+      "km_driven": 6.41,
+      "energy_consumed_kWh": 3.23,
+      "final_soc": 0.9226
+    },
+    {
+      "vehicle_id": 109,
+      "trips_served": 23,
+      "km_driven": 9.41,
+      "energy_consumed_kWh": 4.72,
+      "final_soc": 0.91
+    },
+    {
+      "vehicle_id": 110,
+      "trips_served": 14,
+      "km_driven": 8.34,
+      "energy_consumed_kWh": 4.03,
+      "final_soc": 0.9158
+    },
+    {
+      "vehicle_id": 111,
+      "trips_served": 31,
+      "km_driven": 16.13,
+      "energy_consumed_kWh": 7.36,
+      "final_soc": 0.8877
+    },
+    {
+      "vehicle_id": 112,
+      "trips_served": 11,
+      "km_driven": 5.27,
+      "energy_consumed_kWh": 2.43,
+      "final_soc": 0.9294
+    },
+    {
+      "vehicle_id": 113,
+      "trips_served": 8,
+      "km_driven": 4.66,
+      "energy_consumed_kWh": 2.1,
+      "final_soc": 0.9322
+    },
+    {
+      "vehicle_id": 114,
+      "trips_served": 8,
+      "km_driven": 4.75,
+      "energy_consumed_kWh": 2.14,
+      "final_soc": 0.9319
+    },
+    {
+      "vehicle_id": 115,
+      "trips_served": 17,
+      "km_driven": 8.91,
+      "energy_consumed_kWh": 4.55,
+      "final_soc": 0.9115
+    },
+    {
+      "vehicle_id": 116,
+      "trips_served": 14,
+      "km_driven": 6.85,
+      "energy_consumed_kWh": 3.5,
+      "final_soc": 0.9203
+    },
+    {
+      "vehicle_id": 117,
+      "trips_served": 3,
+      "km_driven": 1.8,
+      "energy_consumed_kWh": 0.87,
+      "final_soc": 0.9426
+    },
+    {
+      "vehicle_id": 118,
+      "trips_served": 19,
+      "km_driven": 9.01,
+      "energy_consumed_kWh": 4.48,
+      "final_soc": 0.9121
+    },
+    {
+      "vehicle_id": 119,
+      "trips_served": 10,
+      "km_driven": 6.39,
+      "energy_consumed_kWh": 3.0,
+      "final_soc": 0.9246
+    },
+    {
+      "vehicle_id": 120,
+      "trips_served": 16,
+      "km_driven": 8.79,
+      "energy_consumed_kWh": 4.44,
+      "final_soc": 0.9124
+    },
+    {
+      "vehicle_id": 121,
+      "trips_served": 13,
+      "km_driven": 7.87,
+      "energy_consumed_kWh": 3.65,
+      "final_soc": 0.919
+    },
+    {
+      "vehicle_id": 122,
+      "trips_served": 6,
+      "km_driven": 2.46,
+      "energy_consumed_kWh": 1.15,
+      "final_soc": 0.9403
+    },
+    {
+      "vehicle_id": 123,
+      "trips_served": 13,
+      "km_driven": 7.86,
+      "energy_consumed_kWh": 3.76,
+      "final_soc": 0.9181
+    },
+    {
+      "vehicle_id": 124,
+      "trips_served": 22,
+      "km_driven": 12.46,
+      "energy_consumed_kWh": 6.16,
+      "final_soc": 0.8978
+    },
+    {
+      "vehicle_id": 125,
+      "trips_served": 27,
+      "km_driven": 13.43,
+      "energy_consumed_kWh": 6.49,
+      "final_soc": 0.895
+    },
+    {
+      "vehicle_id": 126,
+      "trips_served": 8,
+      "km_driven": 3.77,
+      "energy_consumed_kWh": 1.76,
+      "final_soc": 0.9351
+    },
+    {
+      "vehicle_id": 127,
+      "trips_served": 27,
+      "km_driven": 13.84,
+      "energy_consumed_kWh": 6.96,
+      "final_soc": 0.8911
+    },
+    {
+      "vehicle_id": 128,
+      "trips_served": 11,
+      "km_driven": 4.44,
+      "energy_consumed_kWh": 2.15,
+      "final_soc": 0.9317
+    },
+    {
+      "vehicle_id": 129,
+      "trips_served": 34,
+      "km_driven": 20.74,
+      "energy_consumed_kWh": 10.04,
+      "final_soc": 0.8649
+    },
+    {
+      "vehicle_id": 130,
+      "trips_served": 13,
+      "km_driven": 7.03,
+      "energy_consumed_kWh": 3.41,
+      "final_soc": 0.9211
+    },
+    {
+      "vehicle_id": 131,
+      "trips_served": 8,
+      "km_driven": 5.63,
+      "energy_consumed_kWh": 2.55,
+      "final_soc": 0.9284
+    },
+    {
+      "vehicle_id": 132,
+      "trips_served": 2,
+      "km_driven": 1.59,
+      "energy_consumed_kWh": 0.72,
+      "final_soc": 0.9439
+    },
+    {
+      "vehicle_id": 133,
+      "trips_served": 10,
+      "km_driven": 3.74,
+      "energy_consumed_kWh": 1.75,
+      "final_soc": 0.9351
+    },
+    {
+      "vehicle_id": 134,
+      "trips_served": 26,
+      "km_driven": 12.55,
+      "energy_consumed_kWh": 6.08,
+      "final_soc": 0.8984
+    },
+    {
+      "vehicle_id": 135,
+      "trips_served": 9,
+      "km_driven": 4.41,
+      "energy_consumed_kWh": 2.23,
+      "final_soc": 0.9311
+    },
+    {
+      "vehicle_id": 136,
+      "trips_served": 15,
+      "km_driven": 7.35,
+      "energy_consumed_kWh": 3.73,
+      "final_soc": 0.9184
+    },
+    {
+      "vehicle_id": 137,
+      "trips_served": 6,
+      "km_driven": 3.94,
+      "energy_consumed_kWh": 1.95,
+      "final_soc": 0.9335
+    },
+    {
+      "vehicle_id": 138,
+      "trips_served": 9,
+      "km_driven": 4.12,
+      "energy_consumed_kWh": 1.86,
+      "final_soc": 0.9342
+    },
+    {
+      "vehicle_id": 139,
+      "trips_served": 19,
+      "km_driven": 10.54,
+      "energy_consumed_kWh": 5.09,
+      "final_soc": 0.9069
+    },
+    {
+      "vehicle_id": 140,
+      "trips_served": 13,
+      "km_driven": 8.06,
+      "energy_consumed_kWh": 3.73,
+      "final_soc": 0.9184
+    },
+    {
+      "vehicle_id": 141,
+      "trips_served": 15,
+      "km_driven": 7.45,
+      "energy_consumed_kWh": 3.73,
+      "final_soc": 0.9184
+    },
+    {
+      "vehicle_id": 142,
+      "trips_served": 11,
+      "km_driven": 6.99,
+      "energy_consumed_kWh": 3.32,
+      "final_soc": 0.9218
+    },
+    {
+      "vehicle_id": 143,
+      "trips_served": 9,
+      "km_driven": 3.44,
+      "energy_consumed_kWh": 1.81,
+      "final_soc": 0.9347
+    },
+    {
+      "vehicle_id": 144,
+      "trips_served": 23,
+      "km_driven": 10.57,
+      "energy_consumed_kWh": 5.27,
+      "final_soc": 0.9054
+    },
+    {
+      "vehicle_id": 145,
+      "trips_served": 7,
+      "km_driven": 3.35,
+      "energy_consumed_kWh": 1.76,
+      "final_soc": 0.9351
+    },
+    {
+      "vehicle_id": 146,
+      "trips_served": 7,
+      "km_driven": 3.32,
+      "energy_consumed_kWh": 1.32,
+      "final_soc": 0.9388
+    },
+    {
+      "vehicle_id": 147,
+      "trips_served": 20,
+      "km_driven": 8.84,
+      "energy_consumed_kWh": 4.43,
+      "final_soc": 0.9125
+    },
+    {
+      "vehicle_id": 148,
+      "trips_served": 5,
+      "km_driven": 2.69,
+      "energy_consumed_kWh": 1.34,
+      "final_soc": 0.9386
+    },
+    {
+      "vehicle_id": 149,
+      "trips_served": 11,
+      "km_driven": 4.86,
+      "energy_consumed_kWh": 2.72,
+      "final_soc": 0.927
+    },
+    {
+      "vehicle_id": 150,
+      "trips_served": 10,
+      "km_driven": 3.58,
+      "energy_consumed_kWh": 1.76,
+      "final_soc": 0.9351
+    },
+    {
+      "vehicle_id": 151,
+      "trips_served": 20,
+      "km_driven": 11.47,
+      "energy_consumed_kWh": 5.33,
+      "final_soc": 0.9049
+    },
+    {
+      "vehicle_id": 152,
+      "trips_served": 7,
+      "km_driven": 3.39,
+      "energy_consumed_kWh": 1.67,
+      "final_soc": 0.9358
+    },
+    {
+      "vehicle_id": 153,
+      "trips_served": 12,
+      "km_driven": 7.54,
+      "energy_consumed_kWh": 3.66,
+      "final_soc": 0.919
+    },
+    {
+      "vehicle_id": 154,
+      "trips_served": 5,
+      "km_driven": 2.87,
+      "energy_consumed_kWh": 1.57,
+      "final_soc": 0.9367
+    },
+    {
+      "vehicle_id": 155,
+      "trips_served": 5,
+      "km_driven": 2.95,
+      "energy_consumed_kWh": 1.29,
+      "final_soc": 0.9391
+    },
+    {
+      "vehicle_id": 156,
+      "trips_served": 8,
+      "km_driven": 3.64,
+      "energy_consumed_kWh": 1.77,
+      "final_soc": 0.935
+    },
+    {
+      "vehicle_id": 157,
+      "trips_served": 11,
+      "km_driven": 6.23,
+      "energy_consumed_kWh": 3.02,
+      "final_soc": 0.9244
+    },
+    {
+      "vehicle_id": 158,
+      "trips_served": 13,
+      "km_driven": 6.53,
+      "energy_consumed_kWh": 3.32,
+      "final_soc": 0.9219
+    },
+    {
+      "vehicle_id": 159,
+      "trips_served": 7,
+      "km_driven": 4.53,
+      "energy_consumed_kWh": 2.08,
+      "final_soc": 0.9324
+    },
+    {
+      "vehicle_id": 160,
+      "trips_served": 6,
+      "km_driven": 3.49,
+      "energy_consumed_kWh": 1.7,
+      "final_soc": 0.9356
+    },
+    {
+      "vehicle_id": 161,
+      "trips_served": 4,
+      "km_driven": 2.97,
+      "energy_consumed_kWh": 1.27,
+      "final_soc": 0.9393
+    },
+    {
+      "vehicle_id": 162,
+      "trips_served": 11,
+      "km_driven": 5.91,
+      "energy_consumed_kWh": 2.7,
+      "final_soc": 0.9271
+    },
+    {
+      "vehicle_id": 163,
+      "trips_served": 10,
+      "km_driven": 6.26,
+      "energy_consumed_kWh": 2.94,
+      "final_soc": 0.9251
+    },
+    {
+      "vehicle_id": 164,
+      "trips_served": 5,
+      "km_driven": 3.2,
+      "energy_consumed_kWh": 1.59,
+      "final_soc": 0.9365
+    },
+    {
+      "vehicle_id": 165,
+      "trips_served": 8,
+      "km_driven": 4.44,
+      "energy_consumed_kWh": 2.14,
+      "final_soc": 0.9319
+    },
+    {
+      "vehicle_id": 166,
+      "trips_served": 5,
+      "km_driven": 2.14,
+      "energy_consumed_kWh": 1.03,
+      "final_soc": 0.9412
+    },
+    {
+      "vehicle_id": 167,
+      "trips_served": 4,
+      "km_driven": 2.63,
+      "energy_consumed_kWh": 1.09,
+      "final_soc": 0.9408
+    },
+    {
+      "vehicle_id": 168,
+      "trips_served": 4,
+      "km_driven": 2.51,
+      "energy_consumed_kWh": 1.25,
+      "final_soc": 0.9394
+    },
+    {
+      "vehicle_id": 169,
+      "trips_served": 5,
+      "km_driven": 2.92,
+      "energy_consumed_kWh": 1.3,
+      "final_soc": 0.939
+    },
+    {
+      "vehicle_id": 170,
+      "trips_served": 20,
+      "km_driven": 11.61,
+      "energy_consumed_kWh": 5.95,
+      "final_soc": 0.8996
+    },
+    {
+      "vehicle_id": 171,
+      "trips_served": 2,
+      "km_driven": 1.88,
+      "energy_consumed_kWh": 0.92,
+      "final_soc": 0.9422
+    },
+    {
+      "vehicle_id": 172,
+      "trips_served": 6,
+      "km_driven": 2.54,
+      "energy_consumed_kWh": 1.3,
+      "final_soc": 0.9389
+    },
+    {
+      "vehicle_id": 173,
+      "trips_served": 10,
+      "km_driven": 6.49,
+      "energy_consumed_kWh": 3.21,
+      "final_soc": 0.9228
+    },
+    {
+      "vehicle_id": 174,
+      "trips_served": 7,
+      "km_driven": 5.82,
+      "energy_consumed_kWh": 2.67,
+      "final_soc": 0.9273
+    },
+    {
+      "vehicle_id": 175,
+      "trips_served": 5,
+      "km_driven": 2.52,
+      "energy_consumed_kWh": 1.23,
+      "final_soc": 0.9396
+    },
+    {
+      "vehicle_id": 176,
+      "trips_served": 3,
+      "km_driven": 2.8,
+      "energy_consumed_kWh": 1.48,
+      "final_soc": 0.9375
+    },
+    {
+      "vehicle_id": 177,
+      "trips_served": 6,
+      "km_driven": 5.08,
+      "energy_consumed_kWh": 2.37,
+      "final_soc": 0.9299
+    },
+    {
+      "vehicle_id": 178,
+      "trips_served": 7,
+      "km_driven": 5.43,
+      "energy_consumed_kWh": 2.54,
+      "final_soc": 0.9285
+    },
+    {
+      "vehicle_id": 179,
+      "trips_served": 4,
+      "km_driven": 2.46,
+      "energy_consumed_kWh": 1.13,
+      "final_soc": 0.9405
+    },
+    {
+      "vehicle_id": 180,
+      "trips_served": 10,
+      "km_driven": 5.6,
+      "energy_consumed_kWh": 2.71,
+      "final_soc": 0.927
+    },
+    {
+      "vehicle_id": 181,
+      "trips_served": 7,
+      "km_driven": 4.09,
+      "energy_consumed_kWh": 1.98,
+      "final_soc": 0.9332
+    },
+    {
+      "vehicle_id": 182,
+      "trips_served": 9,
+      "km_driven": 4.75,
+      "energy_consumed_kWh": 2.25,
+      "final_soc": 0.9309
+    },
+    {
+      "vehicle_id": 183,
+      "trips_served": 3,
+      "km_driven": 2.19,
+      "energy_consumed_kWh": 1.01,
+      "final_soc": 0.9415
+    },
+    {
+      "vehicle_id": 184,
+      "trips_served": 21,
+      "km_driven": 11.48,
+      "energy_consumed_kWh": 5.59,
+      "final_soc": 0.9027
+    },
+    {
+      "vehicle_id": 185,
+      "trips_served": 14,
+      "km_driven": 7.96,
+      "energy_consumed_kWh": 3.82,
+      "final_soc": 0.9176
+    },
+    {
+      "vehicle_id": 186,
+      "trips_served": 9,
+      "km_driven": 4.15,
+      "energy_consumed_kWh": 1.98,
+      "final_soc": 0.9332
+    },
+    {
+      "vehicle_id": 187,
+      "trips_served": 11,
+      "km_driven": 5.49,
+      "energy_consumed_kWh": 2.65,
+      "final_soc": 0.9276
+    },
+    {
+      "vehicle_id": 188,
+      "trips_served": 8,
+      "km_driven": 3.95,
+      "energy_consumed_kWh": 1.81,
+      "final_soc": 0.9347
+    },
+    {
+      "vehicle_id": 189,
+      "trips_served": 11,
+      "km_driven": 5.25,
+      "energy_consumed_kWh": 2.48,
+      "final_soc": 0.929
+    },
+    {
+      "vehicle_id": 190,
+      "trips_served": 12,
+      "km_driven": 7.26,
+      "energy_consumed_kWh": 3.34,
+      "final_soc": 0.9217
+    },
+    {
+      "vehicle_id": 191,
+      "trips_served": 10,
+      "km_driven": 4.75,
+      "energy_consumed_kWh": 2.21,
+      "final_soc": 0.9313
+    },
+    {
+      "vehicle_id": 192,
+      "trips_served": 23,
+      "km_driven": 10.16,
+      "energy_consumed_kWh": 5.23,
+      "final_soc": 0.9057
+    },
+    {
+      "vehicle_id": 193,
+      "trips_served": 4,
+      "km_driven": 3.05,
+      "energy_consumed_kWh": 1.53,
+      "final_soc": 0.9371
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "n_pois": 16,
+  "n_categories": 8,
+  "categories": [
+    "Greek Housing",
+    "Recreation",
+    "Academic",
+    "Residence",
+    "Admin",
+    "Student Center",
+    "Library",
+    "Dining"
+  ],
+  "total_daily_trips": 8718,
+  "peak_hour": 18,
+  "peak_hour_trips": 775,
+  "operating_hours": "7:00 - 23:00",
+  "avg_distance_km": 0.443,
+  "max_distance_km": 1.072,
+  "min_distance_km": 0.071,
+  "avg_energy_kwh": 0.135,
+  "max_energy_kwh": 0.3132,
+  "daily_energy_kwh": 1177.1,
+  "estimated_fleet_size": 194,
+  "fleet_size_basis": "775 peak trips / 4 trips per vehicle per hour"
+}

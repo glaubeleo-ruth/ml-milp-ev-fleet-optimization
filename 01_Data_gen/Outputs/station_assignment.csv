@@ -1,0 +1,17 @@
+poi,assigned_station,distance_km,energy_kWh,is_station
+Alpha Sigma Phi,McCormick Student Village,0.3636,0.1125,False
+Arthur S. Keating Sports Center,Arthur S. Keating Sports Center,0.0,0.0,True
+Chemistry Research Building,Paul Galvin Library,0.2589,0.0828,False
+Cunningham Hall,Arthur S. Keating Sports Center,0.2485,0.0799,False
+Farr Hall,McCormick Student Village,0.1767,0.0595,False
+Grover M. Herman Hall,Kaplan Institute,0.1708,0.0579,False
+Kaplan Institute,Kaplan Institute,0.0,0.0,True
+Main Building,Paul Galvin Library,0.1364,0.0481,False
+McCormick Student Village,McCormick Student Village,0.0,0.0,True
+McCormick Tribune Campus Center,McCormick Tribune Campus Center,0.0,0.0,True
+Paul Galvin Library,Paul Galvin Library,0.0,0.0,True
+Perlstein Hall,McCormick Tribune Campus Center,0.1371,0.0483,False
+Pritzker Science Center,Kaplan Institute,0.1836,0.0615,False
+Rowe Village Middle,Paul Galvin Library,0.2337,0.0757,False
+S.R. Crown Hall,Paul Galvin Library,0.1336,0.0473,False
+The Commons,McCormick Tribune Campus Center,0.0715,0.0297,False
