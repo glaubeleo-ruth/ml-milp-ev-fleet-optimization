@@ -1,0 +1,90 @@
+{
+  "strategy": "milp",
+  "total_trips": 9473,
+  "trips_served": 6554,
+  "trips_unserved": 2919,
+  "service_rate_pct": 69.19,
+  "total_energy_kWh": 933.88,
+  "avg_energy_per_trip": 0.1425,
+  "total_deadhead_km": 173.8,
+  "total_trip_km": 2283.76,
+  "avg_wait_sec": 253.4,
+  "milp_total_time_sec": 33.96,
+  "milp_solves": 1206,
+  "milp_avg_time_sec": 0.0282,
+  "wall_time_sec": 35.79,
+  "n_vehicles": 10,
+  "vehicle_stats": [
+    {
+      "vehicle_id": 0,
+      "trips_served": 647,
+      "km_today": 244.1,
+      "energy_today": 92.76,
+      "final_soc": 0.1639
+    },
+    {
+      "vehicle_id": 1,
+      "trips_served": 656,
+      "km_today": 247.5,
+      "energy_today": 94.05,
+      "final_soc": 0.153
+    },
+    {
+      "vehicle_id": 2,
+      "trips_served": 669,
+      "km_today": 247.14,
+      "energy_today": 93.91,
+      "final_soc": 0.1541
+    },
+    {
+      "vehicle_id": 3,
+      "trips_served": 655,
+      "km_today": 248.61,
+      "energy_today": 94.47,
+      "final_soc": 0.1494
+    },
+    {
+      "vehicle_id": 4,
+      "trips_served": 655,
+      "km_today": 249.3,
+      "energy_today": 94.73,
+      "final_soc": 0.1472
+    },
+    {
+      "vehicle_id": 5,
+      "trips_served": 662,
+      "km_today": 243.12,
+      "energy_today": 92.39,
+      "final_soc": 0.1671
+    },
+    {
+      "vehicle_id": 6,
+      "trips_served": 658,
+      "km_today": 245.58,
+      "energy_today": 93.32,
+      "final_soc": 0.1592
+    },
+    {
+      "vehicle_id": 7,
+      "trips_served": 664,
+      "km_today": 245.84,
+      "energy_today": 93.42,
+      "final_soc": 0.1583
+    },
+    {
+      "vehicle_id": 8,
+      "trips_served": 643,
+      "km_today": 242.85,
+      "energy_today": 92.28,
+      "final_soc": 0.1679
+    },
+    {
+      "vehicle_id": 9,
+      "trips_served": 645,
+      "km_today": 243.54,
+      "energy_today": 92.54,
+      "final_soc": 0.1657
+    }
+  ],
+  "method": "milp_fixed"
+}

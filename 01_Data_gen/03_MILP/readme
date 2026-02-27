@@ -1,0 +1,50 @@
+Rolling Horizon Controller — Real-Time MILP Dispatch
+=====================================================
+
+Wraps the MILP solver in a time-stepping simulation that processes
+trip requests in 5-minute decision epochs. At each epoch:
+    1. Collect trip requests that arrived since last epoch
+    2. Complete finished tasks (trips, charging)
+    3. Identify idle vehicles
+    4. Call FleetMILP.solve() with current state
+    5. Execute assignments: update vehicle positions, SoC
+    6. Advance clock
+
+Sub-epoch dispatch rounds allow vehicles to serve multiple trips
+per epoch window, achieving realistic throughput.
+
+Architecture:
+    At each decision epoch (every Δ minutes):
+    1. Collect trip requests that arrived since last epoch
+    2. Identify idle vehicles (not en-route or charging)
+    3. Call FleetMILP.solve() with current state
+    4. Execute assignments: update vehicle positions, SoC
+    5. Process charging completions
+    6. Advance clock
+
+Comparison Baselines:
+    - MILP + ML energy prediction (our contribution)
+    - MILP + fixed energy rate (ablation — no ML)
+    - Nearest-available vehicle (greedy heuristic)
+
+References:
+    - Bongiovanni et al. (2019) — e-ADARP rolling horizon
+    - Bertsimas et al. (2019) — online vehicle routing with reoptimization
+
+Pipeline Position: Stage 6 (Rolling Horizon Execution)
+    trip_data.csv + trained_model.pkl + selected_stations.csv
+        → [THIS SCRIPT] → rolling_horizon_results.json,
+                           rolling_horizon_trips.csv,
+                           rolling_horizon_vehicle_trace.csv,
+                           scenario_comparison.json
+
+Inputs:
+    - trip_data.csv (from fleet simulator — ~4,186 trips)
+    - trained_model.pkl (XGBoost energy predictor)
+    - Station locations and vehicle initial states
+
+Outputs:
+    - rolling_horizon_results.json (aggregate metrics)
+    - rolling_horizon_trips.csv (per-trip dispatch details)
+    - rolling_horizon_vehicle_trace.csv (vehicle state over time)
+    - scenario_comparison.json (3-strategy comparison)
