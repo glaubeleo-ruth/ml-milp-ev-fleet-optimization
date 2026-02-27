@@ -1,0 +1,9 @@
+Milestone 3.4 — Results Analysis & Visualization
+
+Generates plots and summary tables from scenario execution results.
+
+Outputs:
+    - service_rate_comparison.png
+    - energy_by_temperature.png
+    - ml_contribution_heatmap.png
+    - scenario_summary_table.html
