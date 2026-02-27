@@ -1,0 +1,36 @@
+Scenario Executor — Parameter Sweep for Sensitivity Analysis
+=============================================================
+
+Systematically varies operational parameters to characterize system
+performance and identify conditions where ML energy prediction
+provides the greatest benefit over fixed-rate estimates.
+
+Scenario Dimensions:
+    1. Fleet Size:        [5, 8, 10, 12, 15] vehicles     — 5 options
+    2. Epoch Interval:    [2, 5, 10] minutes               — 3 options
+    3. Objective Weights: [balanced, energy, service]       — 3 options
+    4. Temperature:       [cold_winter, baseline, hot_summer] — 3 options
+
+Full factorial: 5 × 3 × 3 × 3 = 135 scenarios
+
+Each scenario runs 3 methods:
+    - MILP + ML Energy Prediction (our contribution)
+    - MILP + Fixed Energy Rate (ablation baseline)
+    - Nearest-Available (dispatch baseline)
+
+Total simulation runs: 135 scenarios × 3 methods = 405 runs
+
+Pipeline Position: Stage 7 (Scenario Execution)
+    trip_data.csv + trained_model.pkl + rolling_horizon.py
+        → [THIS SCRIPT] → scenario_results.json,
+                           scenario_summary.csv
+
+Usage:
+    python scenario_executor.py                         # Default (key scenarios)
+    python scenario_executor.py --key                   # Key scenarios (6)
+    python scenario_executor.py --sweep fleet           # Fleet size sweep (5)
+    python scenario_executor.py --sweep temperature     # Temperature sweep (3)
+    python scenario_executor.py --sweep epoch           # Epoch interval sweep (3)
+    python scenario_executor.py --all                   # Full factorial (135)
+    python scenario_executor.py --fleet 10 --epoch 5 \\
+        --weights balanced --temp baseline              # Single custom scenario
