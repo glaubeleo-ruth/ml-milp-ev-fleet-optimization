@@ -1,176 +1,180 @@
 # ML-Enhanced Electric Vehicle Fleet Routing Optimization
 
-[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python](https://img.shields.io/badge/python-3.10-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-An integrated framework combining **Machine Learning energy prediction** with **Mixed-Integer Linear Programming (MILP) optimization** for electric autonomous vehicle fleet routing on campus networks.
+An integrated framework combining machine learning energy prediction with mixed-integer linear programming (MILP) optimization for electric autonomous vehicle fleet routing.
 
-![System Architecture](docs/images/system_architecture.png)
+## Table of Contents
 
----
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Results Summary](#results-summary)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Data Description](#data-description)
-- [Methodology](#methodology)
-- [Configuration](#configuration)
-- [Citation](#citation)
-- [License](#license)
-- [Contact](#contact)
+1. Overview
+2. Key Features
+3. Results Summary
+4. Project Structure
+5. Installation
+6. Usage
+7. Data Description
+8. Methodology
+9. Visualizations
+10. Configuration
+11. Citation
+12. License
+13. Contact
+14. References
 
 ---
 
-## 🎯 Overview
+## 1. Overview
 
-Electric autonomous vehicles face significant operational challenges due to **energy uncertainty**—particularly from temperature-dependent HVAC loads that can reduce driving range by 30-40% in extreme weather. Traditional fleet routing approaches use fixed energy rates (e.g., 0.38 kWh/km) that ignore these effects.
+Electric autonomous vehicles face operational challenges due to energy uncertainty, particularly from temperature-dependent HVAC loads that can reduce driving range by 30-40% in extreme weather. Traditional fleet routing approaches use fixed energy rates (e.g., 0.38 kWh/km) that ignore these effects, leading to suboptimal dispatch decisions.
 
 This project develops an integrated framework that:
-1. **Predicts** trip-level energy consumption using XGBoost, capturing HVAC effects
-2. **Optimizes** vehicle-to-trip assignments using MILP with energy constraints
-3. **Integrates** ML predictions into MILP through a rolling horizon framework
-4. **Evaluates** performance across 135 scenarios with varying temperatures, fleet sizes, and parameters
+- Predicts trip-level energy consumption using XGBoost, capturing HVAC effects
+- Optimizes vehicle-to-trip assignments using MILP with energy constraints
+- Integrates ML predictions into MILP through a rolling horizon framework
+- Evaluates performance across 135 scenarios with varying conditions
 
 ### Study Area
-- **Location:** Illinois Institute of Technology (IIT) campus, Chicago, IL
-- **Network:** 16 Points of Interest (POIs)
-- **Vehicle:** GreenPower EV Star electric shuttle (118 kWh battery)
-- **Climate:** -15°C (winter) to 38°C (summer)
+
+| Item | Description |
+|------|-------------|
+| Location | Illinois Institute of Technology campus, Chicago, IL |
+| Network | 16 Points of Interest (POIs) |
+| Vehicle | GreenPower EV Star electric shuttle (118 kWh battery) |
+| Climate | -15°C (winter) to 38°C (summer) |
 
 ---
 
-## ✨ Key Features
+## 2. Key Features
 
 | Feature | Description |
 |---------|-------------|
-| **ML Energy Prediction** | XGBoost model achieving R² = 0.94 with temperature-aware HVAC modeling |
-| **MILP Optimization** | Multi-objective optimization balancing energy, wait time, and service rate |
-| **Rolling Horizon Control** | Real-time dispatch with configurable epoch intervals (2, 5, 10 min) |
-| **Comprehensive Evaluation** | 135 scenarios × 3 methods = 405 simulation runs |
-| **Modular Architecture** | Easily swap ML models, solvers, or network configurations |
+| ML Energy Prediction | XGBoost model with R² = 0.94, temperature-aware HVAC modeling |
+| MILP Optimization | Multi-objective optimization balancing energy, wait time, and service |
+| Rolling Horizon Control | Real-time dispatch with configurable epoch intervals (2, 5, 10 min) |
+| Comprehensive Evaluation | 135 scenarios × 3 methods = 405 simulation runs |
+| Modular Architecture | Swap ML models, solvers, or network configurations |
 
 ---
 
-## 📊 Results Summary
+## 3. Results Summary
+
+### Overall Performance
 
 | Metric | MILP + ML | Nearest-Available | Improvement |
 |--------|-----------|-------------------|-------------|
-| Service Rate | 85.4% | 73.2% | **+12.2%** |
-| Deadhead Distance | 78 km | 124 km | **-37%** |
-| Avg Wait Time | 142 sec | 168 sec | **-15%** |
+| Service Rate | 85.4% | 73.2% | +12.2% |
+| Deadhead Distance | 78 km | 124 km | -37% |
+| Avg Wait Time | 142 sec | 168 sec | -15% |
 
 ### ML vs Fixed-Rate Energy Prediction
 
 | Temperature | ML Prediction | Fixed Rate | Difference |
 |-------------|---------------|------------|------------|
-| Cold Winter (-15 to 0°C) | 0.44 kWh/km | 0.38 kWh/km | -17% error |
+| Cold Winter (-15 to 0°C) | 0.44 kWh/km | 0.38 kWh/km | +17% underestimate |
 | Baseline (-4 to 14°C) | 0.37 kWh/km | 0.38 kWh/km | ~0% |
-| Hot Summer (28 to 38°C) | 0.32 kWh/km | 0.38 kWh/km | +18% error |
+| Hot Summer (28 to 38°C) | 0.32 kWh/km | 0.38 kWh/km | -18% overestimate |
+
+### Service Rate by Fleet Size
+
+| Fleet Size | MILP + ML | Nearest | Improvement |
+|------------|-----------|---------|-------------|
+| 5 vehicles | 62.3% | 45.1% | +17.2% |
+| 8 vehicles | 81.7% | 68.4% | +13.3% |
+| 10 vehicles | 91.2% | 82.6% | +8.6% |
+| 12 vehicles | 96.8% | 93.1% | +3.7% |
+| 15 vehicles | 98.5% | 97.0% | +1.5% |
 
 ---
 
-## 📁 Project Structure
+## 4. Project Structure
 
 ```
 ev-fleet-routing/
-│
-├── README.md                       # This file
-├── requirements.txt                # Python dependencies
-├── config.yaml                     # Configuration parameters
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── config.yaml
 │
 ├── data/
 │   ├── raw/
-│   │   ├── poi_locations.csv       # 16 POI coordinates and categories
-│   │   └── vehicle_specs.json      # GreenPower EV Star specifications
+│   │   ├── poi_locations.csv
+│   │   └── vehicle_specs.json
 │   ├── processed/
-│   │   ├── trip_data.csv           # 4,186 generated trip requests
-│   │   ├── od_matrix.csv           # Origin-destination distances
-│   │   └── weather_profiles.csv    # Temperature scenarios
+│   │   ├── trip_data.csv
+│   │   ├── od_matrix.csv
+│   │   └── weather_profiles.csv
 │   └── results/
-│       └── scenario_results.json   # Experiment results (405 runs)
+│       └── scenario_results.json
 │
 ├── models/
-│   └── trained_model.pkl           # Trained XGBoost energy predictor
+│   └── trained_model.pkl
 │
 ├── src/
-│   ├── __init__.py
 │   ├── data_generation/
-│   │   ├── generate_trips.py       # Trip demand generation
-│   │   ├── generate_weather.py     # Temperature profile simulation
-│   │   └── compute_energy.py       # Physics-based energy ground truth
-│   │
+│   │   ├── generate_trips.py
+│   │   ├── generate_weather.py
+│   │   └── compute_energy.py
 │   ├── ml/
-│   │   ├── feature_engineering.py  # Feature extraction
-│   │   ├── train_model.py          # XGBoost training pipeline
-│   │   └── evaluate_model.py       # Model evaluation metrics
-│   │
+│   │   ├── feature_engineering.py
+│   │   ├── train_model.py
+│   │   └── evaluate_model.py
 │   ├── optimization/
-│   │   ├── milp_router.py          # MILP formulation and solver
-│   │   ├── rolling_horizon.py      # Rolling horizon controller
-│   │   └── baseline_dispatch.py    # Nearest-available baseline
-│   │
+│   │   ├── milp_router.py
+│   │   ├── rolling_horizon.py
+│   │   └── baseline_dispatch.py
 │   └── analysis/
-│       ├── scenario_executor.py    # Full factorial experiment runner
-│       ├── analyze_results.py      # Statistical analysis
-│       └── visualize_results.py    # Publication-quality figures
+│       ├── scenario_executor.py
+│       ├── analyze_results.py
+│       └── visualize_results.py
 │
 ├── notebooks/
-│   ├── 01_data_exploration.ipynb   # EDA and data quality checks
-│   ├── 02_ml_training.ipynb        # ML model development
-│   ├── 03_optimization_demo.ipynb  # MILP walkthrough
-│   └── 04_results_analysis.ipynb   # Results visualization
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_ml_training.ipynb
+│   ├── 03_optimization_demo.ipynb
+│   └── 04_results_analysis.ipynb
 │
 ├── tests/
-│   ├── test_energy_model.py        # Energy calculation tests
-│   ├── test_milp_solver.py         # Optimization tests
-│   └── test_rolling_horizon.py     # Integration tests
-│
-├── docs/
-│   ├── images/                     # Figures for documentation
-│   └── paper/                      # Research paper drafts
+│   ├── test_energy_model.py
+│   ├── test_milp_solver.py
+│   └── test_rolling_horizon.py
 │
 └── outputs/
-    ├── figures/                    # Generated plots
-    └── reports/                    # Analysis reports
+    ├── figures/
+    └── reports/
 ```
 
 ---
 
-## 🛠️ Installation
+## 5. Installation
 
 ### Prerequisites
 
-- Python 3.10+
-- pip or conda
+- Python 3.10 or higher
+- pip or conda package manager
 
-### Setup
+### Setup Steps
 
-1. **Clone the repository**
+**Step 1: Clone the repository**
 ```bash
 git clone https://github.com/yourusername/ev-fleet-routing.git
 cd ev-fleet-routing
 ```
 
-2. **Create virtual environment**
+**Step 2: Create virtual environment**
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. **Install dependencies**
+**Step 3: Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### Requirements
+### Dependencies
 
 ```
-# requirements.txt
 numpy>=1.24.0
 pandas>=2.0.0
 scikit-learn>=1.2.0
@@ -186,37 +190,35 @@ tqdm>=4.65.0
 
 ---
 
-## 🚀 Usage
+## 6. Usage
 
-### Quick Start
+### Command Line
 
 ```bash
-# 1. Generate trip data
+# Generate trip data
 python src/data_generation/generate_trips.py --output data/processed/trip_data.csv
 
-# 2. Train ML model
+# Train ML model
 python src/ml/train_model.py --input data/processed/trip_data.csv --output models/trained_model.pkl
 
-# 3. Run single simulation
+# Run simulation
 python src/optimization/rolling_horizon.py \
     --trips data/processed/trip_data.csv \
     --model models/trained_model.pkl \
     --fleet-size 10 \
     --epoch-minutes 5
 
-# 4. Run full experiment (135 scenarios × 3 methods)
+# Run full experiment
 python src/analysis/scenario_executor.py --output data/results/scenario_results.json
 
-# 5. Generate analysis and figures
-python src/analysis/analyze_results.py --input data/results/scenario_results.json --output outputs/
+# Generate figures
+python src/analysis/visualize_results.py --input data/results/scenario_results.json --output outputs/figures/
 ```
 
 ### Python API
 
 ```python
-from src.optimization.milp_router import FleetMILP
 from src.optimization.rolling_horizon import RollingHorizonController
-from src.ml.feature_engineering import build_features
 import joblib
 
 # Load trained model
@@ -233,7 +235,7 @@ controller = RollingHorizonController(
 # Run simulation
 results = controller.run(trip_data='data/processed/trip_data.csv')
 
-# Print summary
+# Print results
 print(f"Service Rate: {results['service_rate']:.1f}%")
 print(f"Total Energy: {results['total_energy']:.0f} kWh")
 print(f"Avg Wait Time: {results['avg_wait_time']:.0f} sec")
@@ -241,334 +243,202 @@ print(f"Avg Wait Time: {results['avg_wait_time']:.0f} sec")
 
 ---
 
-## 📂 Data Description
+## 7. Data Description
 
-### Trip Data (`trip_data.csv`)
+### Trip Data (trip_data.csv)
 
 | Column | Type | Description |
 |--------|------|-------------|
 | trip_id | int | Unique trip identifier |
-| request_time | datetime | When passenger requested trip |
-| origin_poi | str | Pickup location (POI name) |
+| request_time | datetime | Passenger request timestamp |
+| origin_poi | str | Pickup location name |
 | origin_lat | float | Pickup latitude |
 | origin_lon | float | Pickup longitude |
-| dest_poi | str | Dropoff location (POI name) |
+| dest_poi | str | Dropoff location name |
 | dest_lat | float | Dropoff latitude |
 | dest_lon | float | Dropoff longitude |
-| distance_km | float | Route distance (Haversine × 1.3) |
+| distance_km | float | Route distance |
 | duration_sec | float | Estimated travel time |
-| temperature_C | float | Ambient temperature at trip time |
-| total_energy_kWh | float | Ground truth energy (physics model) |
+| temperature_C | float | Ambient temperature |
+| total_energy_kWh | float | Ground truth energy consumption |
 
-### Scenario Results (`scenario_results.json`)
+### Scenario Results (scenario_results.json)
 
-```json
-{
-  "metadata": {
-    "total_scenarios": 135,
-    "total_runs": 405,
-    "timestamp": "2026-02-18T10:30:00"
-  },
-  "results": [
-    {
-      "config": {
-        "scenario_id": 1,
-        "fleet_size": 5,
-        "epoch_minutes": 2,
-        "temperature_name": "cold_winter",
-        "weights_name": "balanced"
-      },
-      "methods": {
-        "milp_ml": {
-          "trips_served": 2612,
-          "trips_missed": 1574,
-          "service_rate_pct": 62.4,
-          "total_energy_kWh": 287.3,
-          "avg_wait_time_sec": 156.2,
-          "total_deadhead_km": 89.4
-        },
-        "milp_fixed": { ... },
-        "nearest": { ... }
-      }
-    }
-  ]
-}
-```
+| Field | Description |
+|-------|-------------|
+| scenario_id | Unique scenario identifier |
+| fleet_size | Number of vehicles (5, 8, 10, 12, 15) |
+| epoch_minutes | Rolling horizon interval (2, 5, 10) |
+| temperature_name | Weather scenario (cold_winter, baseline, hot_summer) |
+| weights_name | Objective profile (energy_focused, balanced, service_focused) |
+| service_rate_pct | Percentage of trips served |
+| total_energy_kWh | Total energy consumed |
+| avg_wait_time_sec | Average passenger wait time |
+| total_deadhead_km | Non-revenue vehicle travel |
 
 ---
 
-## 🔬 Methodology
+## 8. Methodology
 
-### 1. Energy Prediction (XGBoost)
+### 8.1 Energy Prediction Model
 
-**Features:**
-- Distance (km)
-- Duration (sec)
-- Temperature (°C)
-- HVAC power (kW)
-- Hour of day
-- Peak indicator
+XGBoost regression model with 7 input features:
+
+| Feature | Description |
+|---------|-------------|
+| distance_km | Route distance (Haversine × 1.3 circuity) |
+| duration_sec | Estimated travel time |
+| temperature_C | Ambient temperature |
+| hvac_power_kW | Temperature-dependent HVAC load |
+| hour | Hour of day (0-23) |
+| avg_speed_kmh | Average travel speed |
+| is_peak | Peak period indicator |
 
 **HVAC Power Function:**
 ```
 P_HVAC(T) = 
-  3.0 + 0.2×(20-T)     if T < 20°C  (heating)
-  0.5                   if 20 ≤ T ≤ 25°C  (ventilation)
-  2.0 + 0.15×(T-25)    if T > 25°C  (cooling)
+    3.0 + 0.2 × (20 - T)    if T < 20°C   (heating)
+    0.5                      if 20 ≤ T ≤ 25°C   (ventilation)
+    2.0 + 0.15 × (T - 25)   if T > 25°C   (cooling)
 ```
 
-### 2. MILP Optimization
+**Model Performance:**
 
-**Objective:**
+| Metric | Training | Validation | Test |
+|--------|----------|------------|------|
+| R² | 0.97 | 0.95 | 0.94 |
+| RMSE (kWh) | 0.08 | 0.12 | 0.13 |
+| MAE (kWh) | 0.05 | 0.09 | 0.10 |
+
+### 8.2 MILP Optimization
+
+**Objective Function:**
 ```
-min Z = α·Σ(energy) + β·Σ(wait_time) + γ·Σ(unserved_penalty)
+min Z = α × Σ(energy) + β × Σ(wait_time) + γ × Σ(unserved_penalty)
 ```
 
 **Constraints:**
-- Trip assignment (each trip → one vehicle or unserved)
+- Each trip assigned to one vehicle or marked unserved
 - Vehicle availability (temporal feasibility)
-- Battery capacity (SOC ≥ minimum)
+- Battery capacity (SOC ≥ 20% minimum)
 - Maximum wait time (≤ 10 minutes)
 
-### 3. Rolling Horizon
+**Solver:** HiGHS (open-source, < 1 sec per epoch)
+
+### 8.3 Rolling Horizon Framework
 
 ```
 For each epoch (every Δ minutes):
-  1. Collect pending trip requests
-  2. Identify idle vehicles
-  3. Predict energy for all (vehicle, trip) pairs
-  4. Solve MILP for optimal assignments
-  5. Execute dispatch decisions
-  6. Update vehicle states
+    1. Collect pending trip requests
+    2. Identify idle vehicles
+    3. Predict energy for all (vehicle, trip) pairs
+    4. Solve MILP for optimal assignments
+    5. Execute dispatch decisions
+    6. Update vehicle states (position, SOC)
 ```
 
 ---
 
-## ⚙️ Configuration
+## 9. Visualizations
+<img width="828" height="948" alt="movement_map" src="https://github.com/user-attachments/assets/889970f6-de28-4328-926c-57ee58929dc4" />
+<img width="2100" height="750" alt="energy_by_temperature" src="https://github.com/user-attachments/assets/0aa41bcd-07f3-48a8-92af-8c979547aeeb" />
+<img width="1500" height="900" alt="fleet_size_sensitivity" src="https://github.com/user-attachments/assets/e195ef5a-5556-4006-bc37-66c75fdb88f0" />
 
-Edit `config.yaml` to customize parameters:
 
-```yaml
-# config.yaml
-
-network:
-  poi_file: "data/raw/poi_locations.csv"
-  circuity_factor: 1.3
-  avg_speed_kmh: 20
-
-vehicle:
-  battery_capacity_kwh: 118
-  min_soc_pct: 20
-  hvac_power_min_kw: 0.5
-  hvac_power_max_kw: 7.0
-
-operation:
-  service_start: "07:00"
-  service_end: "22:00"
-  max_wait_minutes: 10
-  boarding_time_sec: 30
-
-ml:
-  model_type: "xgboost"
-  n_estimators: 100
-  max_depth: 6
-  learning_rate: 0.1
-  train_split: 0.70
-  val_split: 0.15
-  test_split: 0.15
-
-optimization:
-  solver: "highs"
-  time_limit_sec: 60
-  mip_gap: 0.01
-
-experiment:
-  fleet_sizes: [5, 8, 10, 12, 15]
-  epoch_minutes: [2, 5, 10]
-  temperatures: ["cold_winter", "baseline", "hot_summer"]
-  weight_profiles: ["energy_focused", "balanced", "service_focused"]
-```
 
 ---
 
-## 📖 Citation
+## 10. Configuration
 
-If you use this code in your research, please cite:
+Key parameters in `config.yaml`:
+
+### Vehicle Parameters
+| Parameter | Value |
+|-----------|-------|
+| Battery capacity | 118 kWh |
+| Minimum SOC | 20% |
+| Motor efficiency | 85-92% |
+| Regen efficiency | 60% |
+| HVAC power range | 0.5-7.0 kW |
+
+### Operational Parameters
+| Parameter | Value |
+|-----------|-------|
+| Service hours | 7:00 AM - 10:00 PM |
+| Max wait time | 10 minutes |
+| Average speed | 20 km/h |
+| Circuity factor | 1.3 |
+
+### ML Parameters
+| Parameter | Value |
+|-----------|-------|
+| Model | XGBoost |
+| n_estimators | 100 |
+| max_depth | 6 |
+| learning_rate | 0.1 |
+| Train/Val/Test split | 70/15/15 |
+
+### Experiment Parameters
+| Parameter | Values |
+|-----------|--------|
+| Fleet sizes | 5, 8, 10, 12, 15 |
+| Epoch intervals | 2, 5, 10 minutes |
+| Temperatures | cold_winter, baseline, hot_summer |
+| Weight profiles | energy_focused, balanced, service_focused |
+
+---
+
+## 11. Citation
 
 ```bibtex
 @thesis{suh2026mlfleet,
-  author  = {Suh, Jungwoo},
-  title   = {ML-Enhanced MILP Optimization for Electric Autonomous Vehicle Fleet Routing},
-  school  = {Illinois Institute of Technology},
-  year    = {2026},
-  type    = {Master's Thesis},
-  address = {Chicago, IL}
+    author  = {Suh, Jungwoo},
+    title   = {ML-Enhanced MILP Optimization for Electric Autonomous Vehicle Fleet Routing},
+    school  = {Illinois Institute of Technology},
+    year    = {2026},
+    type    = {Master's Thesis},
+    address = {Chicago, IL}
 }
 ```
 
 ---
 
-## 📄 License
+## 12. License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
 MIT License
 
 Copyright (c) 2026 Jungwoo Suh
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-```
+See LICENSE file for full text.
 
 ---
 
-## 📧 Contact
+## 13. Contact
 
 **Jungwoo Suh**  
 Department of Civil, Architectural and Environmental Engineering  
 Illinois Institute of Technology  
 Email: jsuh10@hawk.iit.edu
 
----
-
-## 🙏 Acknowledgments
+### Acknowledgments
 
 - Advisor: [Professor Name], Illinois Institute of Technology
-- Vehicle data: [GreenPower Motor Company](https://greenpowermotor.com/)
+- Vehicle specifications: GreenPower Motor Company
 - HVAC modeling: Based on Kambly & Bradley (2014)
-- MILP solver: [HiGHS](https://highs.dev/)
+- MILP solver: HiGHS
 
 ---
 
-## 📊 Visualizations
+## 14. References
 
-All figures are generated from `scenario_results.json` using publication-quality settings (300 DPI, serif fonts).
+1. Chen, T., Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining*, 785-794.
 
-### Figure 1: Service Rate by Fleet Size
-![Service Rate by Fleet Size](outputs/figures/fig1_service_rate_by_fleet.png)
+2. Schneider, M., Stenger, A., Goeke, D. (2014). The electric vehicle-routing problem with time windows and recharging stations. *Transportation Science*, 48(4), 500-520.
 
-Line chart comparing service rates across three dispatch methods as fleet size increases from 5 to 15 vehicles.
+3. Kambly, K.R., Bradley, T.H. (2014). Estimating the HVAC energy consumption of plug-in electric vehicles. *Journal of Power Sources*, 259, 117-124.
 
-**Key Finding:** MILP outperforms Nearest-Available by +17.2% with 5 vehicles, decreasing to +1.5% with 15 vehicles.
+4. Fagnant, D.J., Kockelman, K.M. (2014). The travel and environmental implications of shared autonomous vehicles. *Sustainable Cities and Society*, 34, 127-140.
 
----
-
-### Figure 2: MILP Improvement Over Nearest
-![MILP Improvement](outputs/figures/fig2_milp_improvement.png)
-
-Bar chart showing percentage point improvement from MILP optimization.
-
-**Key Finding:** Optimization provides greatest value for constrained fleets (5-8 vehicles).
-
----
-
-### Figure 3: Energy Consumption by Temperature
-![Energy by Temperature](outputs/figures/fig3_energy_by_temperature.png)
-
-Grouped bar chart comparing energy consumption across temperature scenarios.
-
-**Key Finding:** Cold winter has highest consumption (~387 kWh) due to HVAC heating loads.
-
----
-
-### Figure 4: ML vs Fixed Rate Energy Difference
-![ML vs Fixed Energy](outputs/figures/fig4_ml_vs_fixed_energy.png)
-
-Bar chart showing prediction difference between ML and fixed-rate (0.38 kWh/km).
-
-**Key Finding:** 
-- Cold Winter: +17% (fixed rate underestimates)
-- Hot Summer: -18% (fixed rate overestimates)
-
----
-
-### Figure 5: Epoch Interval Sensitivity
-![Epoch Sensitivity](outputs/figures/fig5_epoch_sensitivity.png)
-
-Dual-axis chart showing trade-off between epoch length, service rate, and wait time.
-
-**Key Finding:** 5-minute epochs balance optimization (+0.8% service) with wait time (+17 sec).
-
----
-
-### Figure 6: Performance Distribution Box Plots
-![Box Plots](outputs/figures/fig6_boxplot_comparison.png)
-
-Three-panel box plot showing distribution of service rate, energy, and wait time.
-
-**Key Finding:** MILP methods have higher median and tighter distribution than Nearest.
-
----
-
-### Figure 7: Service Rate Heatmap
-![Heatmap](outputs/figures/fig7_heatmap_service_rate.png)
-
-Heatmaps showing service rate by fleet size × temperature for each method.
-
-**Key Finding:** MILP+ML achieves >90% service with 10+ vehicles in all conditions.
-
----
-
-### Figure 8: Objective Weight Sensitivity
-![Weight Sensitivity](outputs/figures/fig8_weight_sensitivity.png)
-
-Grouped bar chart showing how objective weights affect performance.
-
-**Key Finding:** Service-focused weights: +3.9% service rate at cost of +10% energy.
-
----
-
-### Figure 9: Feature Importance
-![Feature Importance](outputs/figures/fig9_feature_importance.png)
-
-Horizontal bar chart showing XGBoost feature importance.
-
-**Key Finding:** Distance (42%) + HVAC-related features (38%) dominate predictions.
-
----
-
-### Figure 10: Deadhead Comparison
-![Deadhead Comparison](outputs/figures/fig10_deadhead_comparison.png)
-
-Bar chart comparing non-revenue driving distance.
-
-**Key Finding:** MILP reduces deadhead by **37%** (124 km → 78 km).
-
----
-
-### Generating Figures
-
-```bash
-python src/analysis/visualize_results.py \
-    --input data/results/scenario_results.json \
-    --output outputs/figures/
-```
-
-### Color Scheme
-
-| Method | Color | Hex |
-|--------|-------|-----|
-| MILP + ML | Green | `#2ecc71` |
-| MILP + Fixed | Blue | `#3498db` |
-| Nearest-Available | Red | `#e74c3c` |
-
----
-
-## 📚 References
-
-Key references used in this project:
-
-1. Chen, T., Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *KDD*.
-2. Schneider, M., et al. (2014). The electric vehicle-routing problem with time windows. *Transportation Science*.
-3. Kambly, K.R., Bradley, T.H. (2014). Estimating the HVAC energy consumption of plug-in EVs. *Journal of Power Sources*.
-4. Fagnant, D.J., Kockelman, K.M. (2014). Shared autonomous vehicles. *Sustainable Cities and Society*.
-
-See full reference list in the [research paper](docs/paper/Research_Paper_Final.pdf).
+5. Huangfu, Q., Hall, J.A.J. (2018). Parallelizing the dual revised simplex method. *Mathematical Programming Computation*, 10(1), 119-142.
