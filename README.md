@@ -420,11 +420,11 @@ See LICENSE file for full text.
 **Jungwoo Suh**  
 Department of Civil, Architectural and Environmental Engineering  
 Illinois Institute of Technology  
-Email: jsuh10@hawk.iit.edu
+Email: glaubeleo@gmail.com
 
 ### Acknowledgments
 
-- Advisor: [Professor Name], Illinois Institute of Technology
+- Advisor: Professor Mohammed Miralinaghi, Illinois Institute of Technology
 - Vehicle specifications: GreenPower Motor Company
 - HVAC modeling: Based on Kambly & Bradley (2014)
 - MILP solver: HiGHS
