@@ -17,7 +17,7 @@ An integrated framework combining machine learning energy prediction with mixed-
 8. Methodology
 9. Visualizations
 10. Configuration
-11. Citation
+11. About This Project
 12. License
 13. Contact
 14. References
@@ -157,8 +157,8 @@ ev-fleet-routing/
 
 **Step 1: Clone the repository**
 ```bash
-git clone https://github.com/yourusername/ev-fleet-routing.git
-cd ev-fleet-routing
+git clone https://github.com/glaubeleo-ruth/ml-milp-ev-fleet-optimization.git
+cd ml-milp-ev-fleet-optimization
 ```
 
 **Step 2: Create virtual environment**
@@ -296,7 +296,7 @@ XGBoost regression model with 7 input features:
 
 **HVAC Power Function:**
 ```
-P_HVAC(T) = 
+P_HVAC(T) =
     3.0 + 0.2 × (20 - T)    if T < 20°C   (heating)
     0.5                      if 20 ≤ T ≤ 25°C   (ventilation)
     2.0 + 0.15 × (T - 25)   if T > 25°C   (cooling)
@@ -340,11 +340,10 @@ For each epoch (every Δ minutes):
 ---
 
 ## 9. Visualizations
+
 <img width="828" height="948" alt="movement_map" src="https://github.com/user-attachments/assets/889970f6-de28-4328-926c-57ee58929dc4" />
 <img width="2100" height="750" alt="energy_by_temperature" src="https://github.com/user-attachments/assets/0aa41bcd-07f3-48a8-92af-8c979547aeeb" />
 <img width="1500" height="900" alt="fleet_size_sensitivity" src="https://github.com/user-attachments/assets/e195ef5a-5556-4006-bc37-66c75fdb88f0" />
-
-
 
 ---
 
@@ -353,6 +352,7 @@ For each epoch (every Δ minutes):
 Key parameters in `config.yaml`:
 
 ### Vehicle Parameters
+
 | Parameter | Value |
 |-----------|-------|
 | Battery capacity | 118 kWh |
@@ -362,6 +362,7 @@ Key parameters in `config.yaml`:
 | HVAC power range | 0.5-7.0 kW |
 
 ### Operational Parameters
+
 | Parameter | Value |
 |-----------|-------|
 | Service hours | 7:00 AM - 10:00 PM |
@@ -370,6 +371,7 @@ Key parameters in `config.yaml`:
 | Circuity factor | 1.3 |
 
 ### ML Parameters
+
 | Parameter | Value |
 |-----------|-------|
 | Model | XGBoost |
@@ -379,6 +381,7 @@ Key parameters in `config.yaml`:
 | Train/Val/Test split | 70/15/15 |
 
 ### Experiment Parameters
+
 | Parameter | Values |
 |-----------|--------|
 | Fleet sizes | 5, 8, 10, 12, 15 |
@@ -388,18 +391,13 @@ Key parameters in `config.yaml`:
 
 ---
 
-## 11. Citation
+## 11. About This Project
 
-```bibtex
-@thesis{suh2026mlfleet,
-    author  = {Suh, Jungwoo},
-    title   = {ML-Enhanced MILP Optimization for Electric Autonomous Vehicle Fleet Routing},
-    school  = {Illinois Institute of Technology},
-    year    = {2026},
-    type    = {Master's Thesis},
-    address = {Chicago, IL}
-}
-```
+This project was conducted during a visiting research period at Illinois Institute of Technology (Jan–Feb 2026), focusing on ML-integrated optimization for electric vehicle fleet operations.
+
+**Author:** Jungwoo Suh  
+Department of Industrial and Information Systems Engineering  
+Soongsil University, Seoul, Korea
 
 ---
 
@@ -418,13 +416,13 @@ See LICENSE file for full text.
 ## 13. Contact
 
 **Jungwoo Suh**  
-Department of Civil, Architectural and Environmental Engineering  
-Illinois Institute of Technology  
-Email: glaubeleo@gmail.com
+Department of Industrial and Information Systems Engineering  
+Soongsil University, Seoul, Korea  
+Email: candorleo02@gmail.com
 
 ### Acknowledgments
 
-- Advisor: Professor Mohammed Miralinaghi, Illinois Institute of Technology
+- Research conducted in collaboration with Illinois Institute of Technology
 - Vehicle specifications: GreenPower Motor Company
 - HVAC modeling: Based on Kambly & Bradley (2014)
 - MILP solver: HiGHS
