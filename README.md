@@ -4,6 +4,11 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 An integrated framework combining machine learning energy prediction with mixed-integer linear programming (MILP) optimization for electric autonomous vehicle fleet routing.
+<p align="center">
+  <img width="600" height="400" alt="Overview" src="assets/problem_overview.png" />
+  <br>
+  <em>Figure 4: ROC curve — KNN vs XGBoost</em>
+</p>
 
 ## Table of Contents
 
