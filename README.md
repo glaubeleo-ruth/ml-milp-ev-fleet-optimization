@@ -7,7 +7,7 @@ An integrated framework combining machine learning energy prediction with mixed-
 <p align="center">
   <img width="600" height="400" alt="Overview" src="assets/problem_overview.png" />
   <br>
-  <em>Figure 4: ROC curve — KNN vs XGBoost</em>
+  <em>Figure 1: Problem Formulation</em>
 </p>
 
 ## Table of Contents
