@@ -27,6 +27,7 @@ tqdm>=4.65.0
 
 # Geospatial (optional)
 # geopy>=2.3.0
+# contextily>=1.6.0   # OSM basemap for 05_Scenario/animate_comparison.py
 
 # Jupyter notebooks (optional)
 # jupyter>=1.0.0

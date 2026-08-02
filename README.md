@@ -346,6 +346,29 @@ For each epoch (every Δ minutes):
 
 ## 9. Visualizations
 
+### Dispatch over one operating day — MILP vs greedy
+
+![MILP versus greedy dispatch animated over one operating day](assets/fleet_comparison.gif)
+
+Both policies run the same 10-vehicle fleet on the same demand, replayed from
+`03_MILP/*_vehicle_trace.csv`. Vehicles are colored by state of charge; trails show the
+last 40 minutes of movement.
+
+Watch the counters diverge. The greedy baseline goes quiet after 19:59 — its vehicles stop
+moving and its trip counter freezes at 3,078 while holding ~30% charge, recovering to ~90%
+only in the final hour. The MILP policy keeps dispatching into the evening, drawing the
+fleet down to 16% charge and finishing at **6,554 trips — 1.99× the baseline**. The gap is
+not a battery limit: greedy ends the day with charge it never spent.
+
+Regenerate with:
+
+```bash
+pip install contextily          # optional, for the OSM basemap
+python 05_Scenario/animate_comparison.py
+```
+
+### Fleet movement map
+
 <img width="828" height="948" alt="movement_map" src="https://github.com/user-attachments/assets/889970f6-de28-4328-926c-57ee58929dc4" />
 <img width="2100" height="750" alt="energy_by_temperature" src="https://github.com/user-attachments/assets/0aa41bcd-07f3-48a8-92af-8c979547aeeb" />
 <img width="1500" height="900" alt="fleet_size_sensitivity" src="https://github.com/user-attachments/assets/e195ef5a-5556-4006-bc37-66c75fdb88f0" />
